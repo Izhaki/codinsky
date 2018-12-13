@@ -1,0 +1,8 @@
+{
+  "name": "@codinsky/parse-js",
+  "version": "0.0.1",
+  "description": "Javascript/Typescript/Flow parser",
+  "repository": "git@github.com:Izhaki/codinsky.git",
+  "author": "Izhaki <roey@gefri.org>",
+  "license": "MIT"
+}
