@@ -4,5 +4,15 @@
   "description": "Javascript/Typescript/Flow parser",
   "repository": "git@github.com:Izhaki/codinsky.git",
   "author": "Izhaki <roey@gefri.org>",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.2.2",
+    "@babel/runtime": "^7.2.0",
+    "@babel/types": "^7.2.2"
+  }
 }
