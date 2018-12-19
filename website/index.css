@@ -1,0 +1,21 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #fdf6e3;
+}
+
+path {
+  stroke: white;
+}
+
+#sun-burst {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
