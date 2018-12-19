@@ -1,5 +1,3 @@
-/* eslint-disable func-names, prefer-arrow-callback, no-unused-expressions */
-
 import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
