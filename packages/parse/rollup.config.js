@@ -23,7 +23,8 @@ const esm = [
     input,
     output: { file: 'dist/esm/index.js', format: 'esm' },
     plugins: [
-      // Note: rollup-plugin-babel automatically set modules:false with babel 7
+      // Note: rollup-plugin-babel automatically sets `modules:false` with babel 7
+      // so ES6 files are not converted to another format.
       babel({
         // Pick up our root babel.config.js
         rootMode: 'upward',
