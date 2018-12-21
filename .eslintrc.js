@@ -1,6 +1,15 @@
+const path = require('path');
+const aliasesResolver = path.resolve('./eslintAliasesResolver.js');
+const aliases = require('./aliases.config');
+
 module.exports = {
   extends: ['airbnb-base', 'prettier', 'prettier/react'],
   parser: 'babel-eslint',
+  settings: {
+    'import/resolver': {
+      [aliasesResolver]: aliases,
+    },
+  },
   plugins: ['import', 'prettier'],
   rules: {
     // Allow mutating object params
@@ -25,7 +34,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/rollup.config.js'],
+      files: ['**/rollup.config.js', '**/cucumber.config.js'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
       },

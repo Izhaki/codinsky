@@ -6,11 +6,10 @@
   "author": "Izhaki <roey@gefri.org>",
   "license": "MIT",
   "scripts": {
-    "test": "cucumber-js --require-module @babel/register"
+    "test": "cucumber-js --require cucumber.config.js --require features/**/*.js"
   },
   "devDependencies": {
     "@babel/register": "^7.0.0",
-    "@codinsky/parse-js": "^0.0.1",
     "chai": "^4.2.0",
     "cucumber": "^5.0.3"
   }

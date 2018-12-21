@@ -7,6 +7,7 @@
   "author": "Izhaki <roey@gefri.org>",
   "license": "MIT",
   "dependencies": {
+    "@codinsky/curate": "0.0.1",
     "@codinsky/parse-js": "0.0.1"
   },
   "devDependencies": {
