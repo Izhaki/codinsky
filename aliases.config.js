@@ -2,7 +2,11 @@
 
 const path = require('path');
 
+const getPackageSourcePath = packageName =>
+  path.resolve(__dirname, `packages/${packageName}/src`);
+
 module.exports = {
-  '@codinsky/parse-js': path.resolve(__dirname, 'packages/parse/src'),
-  '@codinsky/curate': path.resolve(__dirname, 'packages/curate/src'),
+  '@codinsky/parse-js': getPackageSourcePath('parse'),
+  '@codinsky/curate': getPackageSourcePath('curate'),
+  '@codinsky/geometrify': getPackageSourcePath('geometrify'),
 };

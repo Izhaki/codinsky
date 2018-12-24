@@ -8,7 +8,9 @@
   "license": "MIT",
   "dependencies": {
     "@codinsky/curate": "0.0.1",
-    "@codinsky/parse-js": "0.0.1"
+    "@codinsky/parse-js": "0.0.1",
+    "@codinsky/geometrify": "0.0.1",
+    "d3": "^5.7.0"
   },
   "devDependencies": {
     "babel-loader": "^8.0.4",
