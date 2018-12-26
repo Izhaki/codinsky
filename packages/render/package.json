@@ -1,0 +1,14 @@
+{
+  "name": "@codinsky/render-d3-dom",
+  "version": "0.0.1",
+  "description": "A condinsky DOM renderer using d3",
+  "repository": "git@github.com:Izhaki/codinsky.git",
+  "author": "Izhaki <roey@gefri.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "d3": "^5.7.0"
+  },
+  "peerDependencies": {
+    "d3": "^5.7.0"
+  }
+}

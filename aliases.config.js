@@ -9,4 +9,5 @@ module.exports = {
   '@codinsky/parse-js': getPackageSourcePath('parse'),
   '@codinsky/curate': getPackageSourcePath('curate'),
   '@codinsky/geometrify': getPackageSourcePath('geometrify'),
+  '@codinsky/render-d3-dom': getPackageSourcePath('render'),
 };

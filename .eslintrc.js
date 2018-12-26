@@ -4,6 +4,9 @@ const aliases = require('./aliases.config');
 
 module.exports = {
   extends: ['airbnb-base', 'prettier', 'prettier/react'],
+  env: {
+    browser: true,
+  },
   parser: 'babel-eslint',
   settings: {
     'import/resolver': {
