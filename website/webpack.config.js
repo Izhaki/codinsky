@@ -1,4 +1,4 @@
-const path = require('path');
+const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const alias = require('../aliases.config');
@@ -11,9 +11,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   mode: 'development',
-  context: path.resolve(__dirname),
+  context: resolve(__dirname),
   devtool: 'inline-source-map',
-  entry: './index.js',
+  entry: './src/index.js',
   resolve: {
     alias,
   },
@@ -22,7 +22,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
+        include: resolve(__dirname, 'src'),
         options: {
           // Pick up our root babel.config.js
           rootMode: 'upward',
@@ -51,7 +51,7 @@ module.exports = {
     }),
   ],
   output: {
-    path: path.resolve('dist'),
+    path: resolve('dist'),
     filename: 'index.js',
   },
   devServer: {
