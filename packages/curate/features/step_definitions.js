@@ -1,6 +1,7 @@
 import { Given, Then } from 'cucumber';
 import { expect } from 'chai';
 
+import { pipe } from '@codinsky/core';
 import parse from '@codinsky/parse-js';
 import curate from '../src';
 
@@ -9,8 +10,10 @@ const trim = str => str.trim();
 const csvToArray = str => str.split(',').map(trim);
 
 Given('the following code:', function(source) {
-  const ast = parse(source);
-  this.result = curate(ast);
+  this.result = pipe(
+    parse,
+    curate,
+  )(source);
   // console.log(JSON.stringify(this.result, null, 4));
 });
 

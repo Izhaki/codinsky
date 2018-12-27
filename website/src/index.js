@@ -1,4 +1,5 @@
 import './index.css';
+import { pipe } from '@codinsky/core'; // eslint-disable-line import/no-extraneous-dependencies
 import parse from '@codinsky/parse-js';
 import curate from '@codinsky/curate';
 import geometrify from '@codinsky/geometrify';
@@ -19,5 +20,10 @@ if (a)
   doSomething()
 `;
 
-const root = geometrify(curate(parse(code)));
+const root = pipe(
+  parse,
+  curate,
+  geometrify,
+)(code);
+
 render(root, '#sun-burst #outline', size);

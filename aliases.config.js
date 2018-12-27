@@ -1,11 +1,12 @@
 /* Used by webpack, babel and eslint */
 
-const path = require('path');
+const { resolve } = require('path');
 
 const getPackageSourcePath = packageName =>
-  path.resolve(__dirname, `packages/${packageName}/src`);
+  resolve(__dirname, `packages/${packageName}/src`);
 
 module.exports = {
+  '@codinsky/core': resolve(__dirname, `packages/core`),
   '@codinsky/parse-js': getPackageSourcePath('parse'),
   '@codinsky/curate': getPackageSourcePath('curate'),
   '@codinsky/geometrify': getPackageSourcePath('geometrify'),
