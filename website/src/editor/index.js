@@ -10,8 +10,12 @@ editor.setHighlightSelectedWord(false);
 editor.setShowPrintMargin(false);
 editor.getSession().setUseWorker(false);
 
-// eslint-disable-next-line import/prefer-default-export
-export const setCode = text => {
-  editor.setValue(text);
+export default ({ code, onChange }) => {
+  if (onChange) {
+    editor.on('change', () => {
+      onChange(editor.getValue());
+    });
+  }
+  editor.setValue(code);
   editor.clearSelection();
 };

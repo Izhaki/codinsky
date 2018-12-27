@@ -1,11 +1,14 @@
 import './index.css';
 import sunburst from './sunburst';
-import * as editor from './editor';
+import editor from './editor';
+
+const onChange = code => {
+  sunburst(code);
+};
 
 const code = `
 if (a)
   doSomething()
 `;
 
-sunburst(code);
-editor.setCode(code);
+editor({ code, onChange });

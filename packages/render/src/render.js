@@ -9,12 +9,23 @@ const arcGenerator = d3
   .outerRadius(d => d.y1);
 
 export default (root, d3Element) => {
-  d3Element
-    .selectAll('path')
-    .data(root.descendants())
+  // Data join
+  const paths = d3Element.selectAll('path').data(root.descendants());
+
+  // Update - update existing nodes
+  paths
+    .attr('d', arcGenerator)
+    .style('fill', getFillColour)
+    .style('stroke', '#fdf6e3');
+
+  // Enter - create new nodes
+  paths
     .enter()
     .append('path')
     .attr('d', arcGenerator)
     .style('fill', getFillColour)
     .style('stroke', '#fdf6e3');
+
+  // Exit - remove unused nodes
+  paths.exit().remove();
 };
