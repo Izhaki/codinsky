@@ -1,5 +1,6 @@
 import './index.css';
 import sunburst from './sunburst';
+import * as editor from './editor';
 
 const code = `
 if (a)
@@ -7,3 +8,4 @@ if (a)
 `;
 
 sunburst(code);
+editor.setCode(code);
