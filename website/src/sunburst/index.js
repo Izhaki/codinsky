@@ -4,6 +4,7 @@ import curate from '@codinsky/curate';
 import geometrify from '@codinsky/geometrify';
 import render from '@codinsky/render-d3-dom';
 import getVisualisationSize from './getVisualisationSize';
+import onWindowResize from './optimizedResize';
 
 const setSize = (elementId, size) => {
   const { style } = document.getElementById(elementId);
@@ -11,15 +12,28 @@ const setSize = (elementId, size) => {
   style.height = size;
 };
 
-const size = getVisualisationSize();
+let size = getVisualisationSize();
 setSize('sun-burst', size);
+let root;
+
+const update = () => {
+  render(root, '#sun-burst #outline', size);
+};
+
+const resizeSVG = () => {
+  size = getVisualisationSize();
+  setSize('sun-burst', size);
+  update();
+};
+
+onWindowResize(resizeSVG);
 
 export default code => {
-  const root = pipe(
+  root = pipe(
     parse,
     curate,
     geometrify,
   )(code);
 
-  render(root, '#sun-burst #outline', size);
+  update();
 };
