@@ -1,0 +1,14 @@
+// This file is used by VSCode so we can link aliases to sources
+// (before any build).
+{
+  "compilerOptions": {
+    "baseUrl": "packages",
+    "paths": {
+      "@codinsky/core": ["core/index.js"],
+      "@codinsky/parse-js": ["parse/src/index.js"],
+      "@codinsky/curate": ["curate/src/index.js"],
+      "@codinsky/geometrify": ["geometrify/src/index.js"],
+      "@codinsky/render-d3-dom": ["render/src/index.js"]
+    }
+  }
+}
