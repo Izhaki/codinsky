@@ -2,9 +2,11 @@ import { pipe } from '@codinsky/core'; // eslint-disable-line import/no-extraneo
 import parse from '@codinsky/parse-js';
 import curate from '@codinsky/curate';
 import geometrify from '@codinsky/geometrify';
-import render from '@codinsky/render-d3-dom';
+import getRender from '@codinsky/render-d3-dom';
 import getVisualisationSize from './getVisualisationSize';
 import onWindowResize from './optimizedResize';
+
+const render = getRender('#sun-burst #outline');
 
 const setSize = (elementId, size) => {
   const { style } = document.getElementById(elementId);
@@ -14,26 +16,21 @@ const setSize = (elementId, size) => {
 
 let size = getVisualisationSize();
 setSize('sun-burst', size);
-let root;
-
-const update = () => {
-  render(root, '#sun-burst #outline', size);
-};
 
 const resizeSVG = () => {
   size = getVisualisationSize();
   setSize('sun-burst', size);
-  update();
+  render({ size });
 };
 
 onWindowResize(resizeSVG);
 
 export default code => {
-  root = pipe(
+  const root = pipe(
     parse,
     curate,
     geometrify,
   )(code);
 
-  update();
+  render({ root, size });
 };
