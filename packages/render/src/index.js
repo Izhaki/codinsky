@@ -9,11 +9,13 @@ export default containerSelector => {
   let previousRoot;
   let previousSize;
   return ({ root, size, onMouseOver }) => {
-    if (root && root !== previousRoot) {
+    const newRoot = root && root !== previousRoot;
+    if (newRoot) {
       render(root, outlineElement, onMouseOver);
       previousRoot = root;
     }
-    if (size && size !== previousSize) {
+    const newSize = size && size !== previousSize;
+    if (newSize || newRoot) {
       svgElement.attr('width', size).attr('height', size);
       resize(outlineElement, size);
       previousSize = size;
