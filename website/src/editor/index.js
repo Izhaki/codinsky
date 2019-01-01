@@ -19,3 +19,9 @@ export default ({ code, onChange }) => {
   editor.setValue(code);
   editor.clearSelection();
 };
+
+export const setSelection = ({ start, end }) => {
+  editor.selection.setSelectionRange(
+    new ace.Range(start.line - 1, start.column, end.line - 1, end.column),
+  );
+};

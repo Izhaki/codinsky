@@ -8,23 +8,26 @@ const arcGenerator = d3
   .innerRadius(d => d.y0)
   .outerRadius(d => d.y1);
 
-export default (root, d3Element) => {
+const arc = (selection, onMouseOver) => {
+  selection
+    .attr('d', arcGenerator)
+    .style('fill', getFillColour)
+    .style('stroke', '#fdf6e3');
+
+  if (onMouseOver) {
+    selection.on('mouseover', onMouseOver);
+  }
+};
+
+export default (root, d3Element, onMouseOver) => {
   // Data join
   const paths = d3Element.selectAll('path').data(root.descendants());
 
   // Update - update existing nodes
-  paths
-    .attr('d', arcGenerator)
-    .style('fill', getFillColour)
-    .style('stroke', '#fdf6e3');
+  arc(paths, onMouseOver);
 
   // Enter - create new nodes
-  paths
-    .enter()
-    .append('path')
-    .attr('d', arcGenerator)
-    .style('fill', getFillColour)
-    .style('stroke', '#fdf6e3');
+  arc(paths.enter().append('path'), onMouseOver);
 
   // Exit - remove unused nodes
   paths.exit().remove();

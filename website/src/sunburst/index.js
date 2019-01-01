@@ -8,19 +8,19 @@ import onWindowResize from './optimizedResize';
 
 const render = getRender('#codinsky');
 
-const renderSized = root => {
+const renderSized = (root, onMouseOver) => {
   const size = getVisualisationSize();
-  render({ root, size });
+  render({ root, size, onMouseOver });
 };
 
 onWindowResize(renderSized);
 
-export default code => {
+export default (code, onMouseOver) => {
   const root = pipe(
     parse,
     curate,
     geometrify,
   )(code);
 
-  renderSized(root);
+  renderSized(root, onMouseOver);
 };
