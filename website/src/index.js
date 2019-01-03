@@ -1,4 +1,5 @@
 import './index.css';
+import code from 'raw-loader!@codinsky/render-d3-dom'; // eslint-disable-line
 import sunburst from './sunburst';
 import editor, { setSelection, scrollTo } from './editor';
 
@@ -13,13 +14,8 @@ const onRadialScroll = d => {
   scrollTo(d.data.loc);
 };
 
-const onChange = code => {
-  sunburst(code, onMouseOver, onRadialScroll);
+const onChange = newCode => {
+  sunburst(newCode, onMouseOver, onRadialScroll);
 };
-
-const code = `
-if (a)
-  doSomething()
-`;
 
 editor({ code, onChange });
