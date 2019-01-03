@@ -33,7 +33,6 @@ function addCallback(callback) {
   }
 }
 
-// public method to add additional callback
 export default callback => {
   if (!callbacks.length) {
     window.addEventListener('resize', resize);
