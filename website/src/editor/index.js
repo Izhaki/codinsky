@@ -25,3 +25,7 @@ export const setSelection = ({ start, end }) => {
     new ace.Range(start.line - 1, start.column, end.line - 1, end.column),
   );
 };
+
+export const scrollTo = loc => {
+  editor.scrollToLine(loc.start.line - 1, true, true);
+};

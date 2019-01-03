@@ -13,7 +13,7 @@ onWindowResize(() => {
   resize(size);
 });
 
-export default (code, onMouseOver) => {
+export default (code, onMouseOver, onRadialScroll) => {
   const root = pipe(
     parse,
     curate,
@@ -21,5 +21,5 @@ export default (code, onMouseOver) => {
   )(code);
 
   const size = getVisualisationSize();
-  render({ root, size, onMouseOver });
+  render({ root, size, onMouseOver, onRadialScroll });
 };

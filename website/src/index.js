@@ -1,6 +1,6 @@
 import './index.css';
 import sunburst from './sunburst';
-import editor, { setSelection } from './editor';
+import editor, { setSelection, scrollTo } from './editor';
 
 const onMouseOver = d => {
   const { loc } = d.data;
@@ -9,8 +9,12 @@ const onMouseOver = d => {
   }
 };
 
+const onRadialScroll = d => {
+  scrollTo(d.data.loc);
+};
+
 const onChange = code => {
-  sunburst(code, onMouseOver);
+  sunburst(code, onMouseOver, onRadialScroll);
 };
 
 const code = `

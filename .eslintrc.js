@@ -20,6 +20,9 @@ module.exports = {
 
     // So we can use for..in loop
     'no-restricted-syntax': 'off',
+
+    // So we can use i++ in for loops
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
   },
   overrides: [
     {
