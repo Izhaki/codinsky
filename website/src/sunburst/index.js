@@ -6,14 +6,12 @@ import getRender from '@codinsky/render-d3-dom';
 import getVisualisationSize from './getVisualisationSize';
 import onWindowResize from './optimizedResize';
 
-const render = getRender('#codinsky');
+const { render, resize } = getRender('#codinsky');
 
-const renderSized = (root, onMouseOver) => {
+onWindowResize(() => {
   const size = getVisualisationSize();
-  render({ root, size, onMouseOver });
-};
-
-onWindowResize(renderSized);
+  resize(size);
+});
 
 export default (code, onMouseOver) => {
   const root = pipe(
@@ -22,5 +20,6 @@ export default (code, onMouseOver) => {
     geometrify,
   )(code);
 
-  renderSized(root, onMouseOver);
+  const size = getVisualisationSize();
+  render({ root, size, onMouseOver });
 };
