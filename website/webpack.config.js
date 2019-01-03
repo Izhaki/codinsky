@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const alias = require('../aliases.config');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -46,12 +46,12 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
+    // new BundleAnalyzerPlugin({
+    //   openAnalyzer: false,
+    // }),
   ],
   output: {
-    path: resolve('dist'),
+    path: resolve(__dirname, 'dist'),
     filename: 'index.js',
   },
   devServer: {

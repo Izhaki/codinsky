@@ -11,7 +11,6 @@
     "@codinsky/parse-js": "0.0.1",
     "@codinsky/geometrify": "0.0.1",
     "@codinsky/render-d3-dom": "0.0.1",
-    "render-d3-dom": "0.0.1",
     "d3": "^5.7.0"
   },
   "devDependencies": {
