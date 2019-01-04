@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const alias = require('../aliases.config');
 
@@ -46,6 +47,7 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
+    new CopyWebpackPlugin([{ from: 'static' }]),
     // new BundleAnalyzerPlugin({
     //   openAnalyzer: false,
     // }),
