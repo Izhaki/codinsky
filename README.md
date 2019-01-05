@@ -24,7 +24,7 @@ It can reveal a host of possible issues, and usher you to the land of cleaner, b
 
 Below is [`react-dom/client/ReactDOMComponent.js`](https://github.com/facebook/react/blob/c954efa70f44a44be9c33c60c57f87bea6f40a10/packages/react-dom/src/client/ReactDOMComponent.js).
 
-With all due respect to Dan Abramov, this is a-hashtag-mess.
+With all due respect to Dan Abramov, this is A-HASHTAG-MESS.
 
 <div align="center">
   <img alt="A sunburst diagram showing React's dom component script" src="art/ReactDOMComponent.svg">
@@ -38,7 +38,10 @@ Generally speaking, if the sunburst visual is intimidating, so is the script.
 
 There is just too much happening here, length and breadth.
 
-Breaking such script down will allow readers to better assimilate the code and will make navigation easier. (Our spatial memory is potent, but it goes out of the window with scripts as such.)
+Breaking such script down will:
+
+- Allow readers to better assimilate the code.
+- Make navigation easier (our spatial memory is potent, but it goes to waste with scripts as such).
 
 ## Nested Branching
 
@@ -46,7 +49,9 @@ Breaking such script down will allow readers to better assimilate the code and w
   <img alt="A sunburst diagram showing React's dom component script" src="art/ReactDOMComponent-branching.svg">
 </div>
 
-Testing nightmare. Nested branches are also hard to comprehend because they consume both working-memory slots and logical reasoning cycles.
+Testing nightmare.
+
+Nested branches are also hard to comprehend because they consume both working-memory slots and logical reasoning cycles.
 
 If you look at the code, much is wrapped with:
 
@@ -59,8 +64,8 @@ if (__DEV__) {
 A few concepts pop to mind:
 
 - **Seperation of concerns**: dev/no dev.
-- **Validation**: A cross-cutting concern for which this pattern is often used: `Client > Validation > Implementation`. In OOP decorators do this; it's much easier with functional style.
-- **Masking**: All these dev blocks are in the way for someone wishing to understand the production code.
+- **Validation**: A cross-cutting concern, often solved with this pattern: `Client > Validation > Implementation`. In OOP [decorators](https://en.wikipedia.org/wiki/Decorator_pattern) do this; it's much easier with functional style.
+- **Masking**: All these dev blocks are in the way for someone wishing to understand the production code (and likely vice-versa).
 
 So perhaps anything dev should live in its own script. Doing so would leave us with:
 
@@ -68,7 +73,7 @@ So perhaps anything dev should live in its own script. Doing so would leave us w
   <img alt="A sunburst diagram showing React's dom component script" src="art/ReactDOMComponent-prod.svg">
 </div>
 
-That's better. With the exception of the flare around 8:00, this is very much a few functions with case statement (or else-if trains in this script).
+Better. With the exception of the flare around 8:00, this is very much a few functions with case statements (or else-if trains in this script).
 
 ## High Coupling
 
@@ -78,7 +83,7 @@ That's better. With the exception of the flare around 8:00, this is very much a 
 
 You many need to zoom to see it, but between 0:00-2:00 it's nearly all import.
 
-This script has a-hashtag-lots of imports from quite a few sources. Suggesting:
+This script has A-HASHTAG-LOT of imports from quite a few sources. Suggesting:
 
 - Perhaps it is doing too much.
 - It could be hard to test because you may have too much to mock.
