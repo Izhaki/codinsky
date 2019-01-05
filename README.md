@@ -5,10 +5,10 @@ Code inforgraphics. Cognition-driven.
 [Playground](https://codinsky.js.org/)
 
 <div align="center">
-  <img alt="A sunburst diagram showing Redux createStore script" src="art/createStore.png">
+  <img width="500" height="500" alt="A sunburst diagram showing Redux createStore script" src="art/createStore.svg">
 </div>
 
-[`redux/createStore.js`](https://github.com/reduxjs/redux/blob/a58aa4eba546429c3e48dedc2368e4c1083b5ca4/src/createStore.js)
+[`redux > createStore.js`](https://github.com/reduxjs/redux/blob/a58aa4eba546429c3e48dedc2368e4c1083b5ca4/src/createStore.js)
 
 # Motivation
 
@@ -22,7 +22,7 @@ It can reveal a host of possible issues, and usher you to the land of cleaner, b
 
 # Example
 
-Below is [`react-dom/client/ReactDOMComponent.js`](https://github.com/facebook/react/blob/c954efa70f44a44be9c33c60c57f87bea6f40a10/packages/react-dom/src/client/ReactDOMComponent.js).
+Below is [`react-dom > client > ReactDOMComponent.js`](https://github.com/facebook/react/blob/c954efa70f44a44be9c33c60c57f87bea6f40a10/packages/react-dom/src/client/ReactDOMComponent.js).
 
 With all due respect to Dan Abramov, this is A-HASHTAG-MESS.
 
