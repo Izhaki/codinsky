@@ -14,7 +14,7 @@ Code inforgraphics. Cognition-driven.
 
 > Can't see the forest for the trees.
 
-Immersed in a sea of statements, it is natural for developers to overlook the higher-level qualities of their code.
+Immersed in a sea of statements and expressions, it is natural for developers to overlook the higher-level qualities of their code.
 
 Codinsky provides a concise graphical overview of your script.
 
