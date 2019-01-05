@@ -83,7 +83,7 @@ Better. With the exception of the flare around 8:00, this is very much a few fun
 
 You many need to zoom to see it, but between 0:00-2:00 it's nearly all import.
 
-This script has A-HASHTAG-LOT of imports from quite a few sources. Suggesting:
+This script has loads of imports from quite a few sources, suggesting:
 
 - Perhaps it is doing too much.
 - It could be hard to test because you may have too much to mock.
