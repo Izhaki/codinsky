@@ -2,20 +2,23 @@ import * as d3 from 'd3';
 import doRender from './render';
 import getTransform from './getTransform';
 import radialHitTest from './radialHitTest';
+import getStyle from './getStyle';
 
 export default containerSelector => {
   const containerElement = d3.select(containerSelector);
   const svgElement = containerElement.append('svg');
-  const outlineElement = svgElement.append('g');
+  const sunburstElement = svgElement.append('g');
+
+  sunburstElement.append('style').text(getStyle());
 
   let transform;
 
   const resize = size => {
     svgElement.attr('width', size).attr('height', size);
-    transform = getTransform(outlineElement, size);
+    transform = getTransform(sunburstElement, size);
     const { scale, translate } = transform;
 
-    outlineElement.attr(
+    sunburstElement.attr(
       'transform',
       `
       translate(
@@ -28,7 +31,7 @@ export default containerSelector => {
   };
 
   const render = ({ root, size, onMouseOver, onRadialScroll }) => {
-    doRender(root, outlineElement, onMouseOver);
+    doRender(root, sunburstElement, onMouseOver);
     resize(size);
 
     if (onRadialScroll) {

@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import getFillColour from './getFillColour';
 
 const arcGenerator = d3
   .arc()
@@ -8,11 +7,14 @@ const arcGenerator = d3
   .innerRadius(d => d.y0)
   .outerRadius(d => d.y1);
 
+const isDefined = x => x !== undefined;
+
+const getArcClass = d =>
+  [d.data.category, d.data.subCategory].filter(isDefined).join(' ') ||
+  undefined;
+
 const arc = (selection, onMouseOver) => {
-  selection
-    .attr('d', arcGenerator)
-    .style('fill', getFillColour)
-    .style('stroke', '#fdf6e3');
+  selection.attr('d', arcGenerator).attr('class', getArcClass);
 
   if (onMouseOver) {
     selection.on('mouseover', onMouseOver);
