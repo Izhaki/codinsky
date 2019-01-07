@@ -63,7 +63,7 @@ if (__DEV__) {
 
 A few concepts pop to mind:
 
-- **Seperation of concerns**: dev/no dev.
+- **Seperation of concerns**: dev/production.
 - **Validation**: A cross-cutting concern, often solved with this pattern: `Client > Validation > Implementation`. In OOP [decorators](https://en.wikipedia.org/wiki/Decorator_pattern) do this; it's much easier with functional style.
 - **Masking**: All these dev blocks are in the way for someone wishing to understand the production code (and likely vice-versa).
 

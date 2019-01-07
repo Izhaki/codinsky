@@ -1,3 +1,5 @@
+import dropify from './dropify';
+
 const { ace } = window;
 
 const editor = ace.edit('editor');
@@ -9,6 +11,8 @@ editor.setHighlightActiveLine(false);
 editor.setHighlightSelectedWord(false);
 editor.setShowPrintMargin(false);
 editor.getSession().setUseWorker(false);
+
+dropify(editor);
 
 export default ({ code, onChange }) => {
   if (onChange) {
