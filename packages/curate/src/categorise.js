@@ -113,6 +113,7 @@ export default ast => {
       }
 
       case 'ImportSpecifier':
+      case 'ImportNamespaceSpecifier':
       case 'ImportDefaultSpecifier': {
         setCategory(node, 'dependency', 'es6');
         break;

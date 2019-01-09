@@ -38,3 +38,12 @@ Feature: Dependency
       | type            | category   | subCategory |
       | ImportSpecifier | dependency | es6         |
       | ImportSpecifier | dependency | es6         |
+
+  Scenario: import statement (keys)
+    Given the following code:
+      """
+      import * as d3 from 'd3';
+      """
+    Then the simplified ast should be:
+      | type                     | category   | subCategory |
+      | ImportNamespaceSpecifier | dependency | es6         |
