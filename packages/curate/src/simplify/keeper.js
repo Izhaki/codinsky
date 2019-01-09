@@ -86,16 +86,35 @@ export default ast => {
 
       case 'VariableDeclarator': {
         if (isKeep(node)) {
+          /*
+          For example:
+            const { x, y } = require('codinsky');
+            const { x, y } = point;
+          */
           if (children.id.type === 'ObjectPattern') {
             const { properties } = children.id.children;
             properties.forEach(keep);
+          }
+
+          /*
+          For example:
+            const x = require('codinsky');
+          */
+          if (
+            node.category === 'dependency' &&
+            children.id.type === 'Identifier'
+          ) {
+            keep(children.id);
           }
         }
         break;
       }
 
-      // e.g.
-      // export function something() { ... }
+      /*
+      For example:
+        export function something() { ... }
+      */
+
       case 'ExportDefaultDeclaration':
       case 'ExportNamedDeclaration': {
         keep(children.declaration);
@@ -109,7 +128,6 @@ export default ast => {
       }
 
       case 'ImportDeclaration': {
-        ignore(node);
         children.specifiers.forEach(keep);
         break;
       }

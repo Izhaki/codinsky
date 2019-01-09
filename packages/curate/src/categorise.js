@@ -75,7 +75,7 @@ export default ast => {
         const isObjectPattern = children.id.type === 'ObjectPattern';
         const declarations = isObjectPattern
           ? children.id.children.properties
-          : [node];
+          : [children.id];
 
         let category;
         let subCategory;
@@ -112,6 +112,7 @@ export default ast => {
         break;
       }
 
+      case 'ImportDeclaration':
       case 'ImportSpecifier':
       case 'ImportNamespaceSpecifier':
       case 'ImportDefaultSpecifier': {

@@ -1,15 +1,20 @@
+const isImport = ({ type, category }) =>
+  type === 'ImportDeclaration' ||
+  (type === 'VariableDeclarator' && category === 'dependency');
+
 export default root => {
-  const isBlock = node => node.data.type === 'BlockStatement';
+  const isGroup = node =>
+    node.data.type === 'BlockStatement' || isImport(node.data);
   const isExport = node => node.data.category === 'export';
   const compressNode = (delta, parent) => node => {
     node.y0 -= delta;
     node.y1 -= delta;
     let blockRatio = 1;
     let newDelta = delta;
-    if (isBlock(node)) {
+    if (isGroup(node)) {
       blockRatio = 1 / 5;
     }
-    if (parent && isBlock(parent)) {
+    if (parent && isGroup(parent)) {
       blockRatio = 4 / 5;
     }
     if (blockRatio !== 1) {
