@@ -13,7 +13,7 @@ const theme = {
     fill: '#353461',
   },
   '.process.declaration': {
-    fill: '#00baad',
+    fill: '#19A150',
   },
   '.process.invocation': {
     fill: '#57c785',
