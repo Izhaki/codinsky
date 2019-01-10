@@ -69,3 +69,13 @@ Feature: Process
       | type           | category   | subCategory |
       | CallExpression | process    | invocation  |
 
+  Scenario: Chai style expectation
+    Given the following code:
+      """
+      expect(x).to.equal.true;
+      """
+    Then the simplified ast should be:
+      # See explaination in categorise.js as for why this is MemberExpression
+      | type             | category   | subCategory |
+      | MemberExpression | process    | invocation  |
+

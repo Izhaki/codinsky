@@ -97,6 +97,22 @@ export default ast => {
         break;
       }
 
+      /*
+      MemberExpression is marked as a process.
+      Currently the only time we care about MemberExpression is with
+      this oblique chai api:
+
+        expect(x).to.equal.true;
+
+      which yeilds:
+
+        ExpressionStatement > MemberExpression > MemberExpression > MemberExpression > CallExpression
+
+      We keep the child of ExpressionStatement which is MemberExpression, but unless
+      there is a CallExpression in the descendants (or this madness of a MemberExpression
+      that has a functional getter), the expression will do nothing.
+      */
+      case 'MemberExpression':
       case 'CallExpression': {
         setCategory(node, 'process', 'invocation');
         break;
