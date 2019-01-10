@@ -12,7 +12,7 @@ Feature: Process
       | FunctionDeclaration | process    | declaration |
       | ..CallExpression    |            |             |
 
-  Scenario: exported function declaration
+  Scenario: Exported function declaration
     Given the following code:
       """
       export function log(something) {
@@ -24,6 +24,17 @@ Feature: Process
       | ExportNamedDeclaration |            |             |
       | ..FunctionDeclaration  | process    | declaration |
       | ....CallExpression     |            |             |
+
+  Scenario: Exported arrow function declaration
+    Given the following code:
+      """
+      export default () => { doA(); }
+      """
+    Then the simplified ast should be:
+      | type                      | category | subCategory |
+      | ExportDefaultDeclaration  |          |             |
+      | ..ArrowFunctionExpression | process  | declaration |
+      | ....CallExpression        |          |             |
 
   Scenario: Arrow function
     Given the following code:

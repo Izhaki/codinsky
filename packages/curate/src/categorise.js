@@ -102,6 +102,7 @@ export default ast => {
         break;
       }
 
+      case 'ArrowFunctionExpression':
       case 'FunctionDeclaration': {
         setCategory(node, 'process', 'declaration');
         break;
