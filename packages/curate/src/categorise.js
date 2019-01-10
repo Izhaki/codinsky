@@ -127,6 +127,7 @@ export default ast => {
       }
 
       case 'AssignmentExpression':
+      case 'UnaryExpression':
       case 'UpdateExpression': {
         setCategory(node, 'state', 'mutation');
         break;

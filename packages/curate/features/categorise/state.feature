@@ -38,3 +38,12 @@ Feature: State
       | type             | category | subCategory |
       | UpdateExpression | state    | mutation  |
 
+  Scenario: Delete
+    Given the following code:
+      """
+      delete x;
+      """
+    Then the simplified ast should be:
+      | type             | category | subCategory |
+      | UnaryExpression  | state    | mutation    |
+
