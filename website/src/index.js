@@ -1,7 +1,7 @@
 import './index.css';
-import code from 'raw-loader!@codinsky/render-d3-dom'; // eslint-disable-line
 import sunburst from './sunburst';
 import editor, { setSelection, scrollTo } from './editor';
+import getUrlParam from './getUrlParam';
 
 const onMouseOver = d => {
   const { loc } = d.data;
@@ -18,4 +18,14 @@ const onChange = newCode => {
   sunburst(newCode, onMouseOver, onRadialScroll);
 };
 
-editor({ code, onChange });
+const loadCode = async () => {
+  const defaultSourceUri =
+    'https://raw.githubusercontent.com/Izhaki/codinsky/master/packages/render/src/index.js';
+  const sourceUri = getUrlParam('sourceUri') || defaultSourceUri;
+
+  const response = await fetch(sourceUri);
+  const code = await response.text();
+  editor({ code, onChange });
+};
+
+loadCode();
