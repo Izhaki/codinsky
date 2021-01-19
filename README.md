@@ -1,6 +1,6 @@
 # Codinsky
 
-Code inforgraphics. Cognition-driven.
+Code infographics. Cognition-driven.
 
 [Playground](https://codinsky.js.org/)
 
